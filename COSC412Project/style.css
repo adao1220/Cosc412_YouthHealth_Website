@@ -1,0 +1,135 @@
+*{
+    box-sizing: border-box;
+}
+
+.page-title{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:yellow;
+    font-weight: normal;
+    text-align: center;
+    font-size: 6em;
+}
+
+.overlay-text{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: brown;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.overlay-text-small{
+    font-size: .3em;
+}
+
+.overlay-text.visible{
+    display: flex;
+    flex-direction: column;
+    animation: overlay-grow 500ms forwards;
+}
+
+@keyframes overlay-grow{
+    from{
+        background-color: rbga(0, 0, 0, 0);
+        font-size: 0;
+    }
+    to{
+        font-size: 10em;
+        background-color: rbga(0, 0, 0, .8);
+    }
+}
+
+.game-info{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:goldenrod;
+    font-size: 4em;
+}
+
+.game-info-container{
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.game-container{
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 10px;
+    margin: 50px;
+    justify-content: center;
+    perspective: 500px;
+}
+
+html{
+    min-height: 100vh;
+}
+
+body{
+    margin: 0;
+    background: radial-gradient( white,black);
+}
+
+.card{
+    position: relative;
+    height: 200px;
+    width: 150px;
+}
+
+.card-face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    transition: transform 500ms ease-in-out;
+}
+
+.card.visible .card-back{
+    transform: rotateY(-180deg);
+}
+
+.card.visible .card-front{
+    transform: rotateY(0);
+}
+
+.card-front{
+    background-color: goldenrod;
+    border-color: yellow;
+    transform: rotateY(180deg);
+}
+
+.card-value{
+    transition: transform 100ms ease-in-out;
+    transform: scale(.9);
+}
+
+.card-front:hover .card-value{
+    transform: scale(1);
+}
+
+.red-cross{
+    align-self: flex-start;
+    transform: translateY(0px);
+    transition: transform 100ms ease-in-out;
+}
+
+.card-back:hover .red-cross{
+    transform: translateY(10px);
+}
+
+.card-back{
+    background-color: yellow;
+    border-color: goldenrod;
+}
