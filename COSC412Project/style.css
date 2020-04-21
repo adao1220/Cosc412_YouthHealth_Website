@@ -1,22 +1,22 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-.page-title{
+.page-title {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color:yellow;
+    color: yellow;
     font-weight: normal;
     text-align: center;
     font-size: 6em;
 }
 
-.overlay-text{
+.overlay-text {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 100;
@@ -24,40 +24,40 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.overlay-text-small{
+.overlay-text-small {
     font-size: .3em;
 }
 
-.overlay-text.visible{
+.overlay-text.visible {
     display: flex;
     flex-direction: column;
     animation: overlay-grow 500ms forwards;
 }
 
-@keyframes overlay-grow{
-    from{
+@keyframes overlay-grow {
+    from {
         background-color: rbga(0, 0, 0, 0);
         font-size: 0;
     }
-    to{
+    to {
         font-size: 10em;
         background-color: rbga(0, 0, 0, .8);
     }
 }
 
-.game-info{
+.game-info {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color:goldenrod;
+    color: goldenrod;
     font-size: 4em;
 }
 
-.game-info-container{
+.game-info-container {
     grid-column: 1 / -1;
     display: flex;
     justify-content: space-between;
 }
 
-.game-container{
+.game-container {
     display: grid;
     grid-template-columns: repeat(5, auto);
     grid-gap: 10px;
@@ -66,22 +66,22 @@
     perspective: 500px;
 }
 
-html{
+html {
     min-height: 100vh;
 }
 
-body{
+body {
     margin: 0;
-    background: radial-gradient( white,black);
+    background: radial-gradient( white, black);
 }
 
-.card{
+.card {
     position: relative;
     height: 200px;
     width: 150px;
 }
 
-.card-face{
+.card-face {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -96,40 +96,40 @@ body{
     transition: transform 500ms ease-in-out;
 }
 
-.card.visible .card-back{
+.card.visible .card-back {
     transform: rotateY(-180deg);
 }
 
-.card.visible .card-front{
+.card.visible .card-front {
     transform: rotateY(0);
 }
 
-.card-front{
+.card-front {
     background-color: goldenrod;
     border-color: yellow;
     transform: rotateY(180deg);
 }
 
-.card-value{
+.card-value {
     transition: transform 100ms ease-in-out;
     transform: scale(.9);
 }
 
-.card-front:hover .card-value{
+.card-front:hover .card-value {
     transform: scale(1);
 }
 
-.red-cross{
+.red-cross {
     align-self: flex-start;
     transform: translateY(0px);
     transition: transform 100ms ease-in-out;
 }
 
-.card-back:hover .red-cross{
+.card-back:hover .red-cross {
     transform: translateY(10px);
 }
 
-.card-back{
+.card-back {
     background-color: yellow;
     border-color: goldenrod;
 }
